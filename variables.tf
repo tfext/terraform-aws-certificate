@@ -28,3 +28,17 @@ variable "validate" {
   default     = true
   description = "Set to false for first run or validation resources will fail with for_each error"
 }
+
+variable "manage_dns" {
+  type        = bool
+  default     = true
+  nullable    = false
+  description = "Look up the Route53 zone and create the validation records (default). Set to false when DNS is hosted elsewhere"
+}
+
+variable "wait_for_validation" {
+  type        = bool
+  default     = false
+  nullable    = false
+  description = "Wait during apply until the certificate is issued"
+}
